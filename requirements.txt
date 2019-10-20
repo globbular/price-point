@@ -1,0 +1,9 @@
+-e .
+aws-cdk.aws-events
+aws-cdk.aws-events-targets
+aws-cdk.aws-lambda
+aws-cdk.aws-sns
+aws-cdk.aws-sns-subscriptions
+aws-cdk.aws-lambda-event-sources
+aws-cdk.aws-dynamodb
+boto3
