@@ -34,7 +34,7 @@ exports.handler = (event, context, callback) => {
             let priceStr = priceObj.format();
 
             // Check if product is cheaper
-            if (priceObj.value <= parseFloat(messageObj.Threshold.N)) {
+            if (priceObj.value > 0 && priceObj.value <= parseFloat(messageObj.Threshold.N)) {
                 let sendAlert = false;
                 let previousPrice = parseFloat(messageObj.PrevPrice.N);
 
