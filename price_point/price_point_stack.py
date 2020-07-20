@@ -33,7 +33,7 @@ class PricePointStack(core.Stack):
             code=lamba_code,
             handler="checker.handler",
             timeout=core.Duration.seconds(60),
-            runtime=lambda_.Runtime.NODEJS_10_X,
+            runtime=lambda_.Runtime.NODEJS_12_X,
             environment= {
                 "TOPIC_ARN": sns_output_topic.topic_arn,
                 "DYNAMO_TABLE": dynamo_store_db.table_name
@@ -49,7 +49,7 @@ class PricePointStack(core.Stack):
             code=lamba_code,
             handler="invoker.handler",
             timeout=core.Duration.seconds(300),
-            runtime=lambda_.Runtime.NODEJS_10_X,
+            runtime=lambda_.Runtime.NODEJS_12_X,
             environment= {
                 "TOPIC_ARN": sns_input_topic.topic_arn,
                 "DYNAMO_TABLE": dynamo_store_db.table_name

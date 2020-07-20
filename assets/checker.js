@@ -12,8 +12,12 @@ exports.handler = (event, context, callback) => {
 
     request(messageObj.Url.S, function (error, response, body) {
         if (error) {
-            console.log('error:', error); // Print the error if one occurred
-        } else {
+            console.error('Error:', error); // Print the error if one occurred
+        } else if (response.statusCode != 200) {
+            console.error('Response wasn\'t 200:', body);
+        }
+        else {
+            console.log(`Got page: ${messageObj.Url.S}`);
             const $ = cheerio.load(body);
             let textToExtract = '';
             
