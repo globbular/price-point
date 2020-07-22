@@ -18,7 +18,7 @@ class PricePointStack(core.Stack):
         
         # Code Asset 
         lamba_code = lambda_.AssetCode("./assets/")
-
+        
         # DynamoDB
         dynamo_store_db = dynamo.Table(self,"products_to_check_db",
                                         partition_key=dynamo.Attribute(name="ProductTs",type=dynamo.AttributeType.NUMBER))
@@ -63,7 +63,7 @@ class PricePointStack(core.Stack):
         # Grant access to Dynamo for lambdas
         dynamo_store_db.grant_read_data(lambda_invoker)
         dynamo_store_db.grant_read_write_data(lambda_checker)
-
+    
         # Run every day at 05:00 UTC
         # See https://docs.aws.amazon.com/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html
         rule = events.Rule(
